@@ -11,17 +11,25 @@ module.exports = {
         publicPath: '',
         clean: true,
     },
+    devtool: 'source-map',
+    devServer: {
+        hot: false
+    },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     template: './index.html'
+        // }),
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './index.html'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'page.html',
+            template: './page.html'
         })
     ],
     module: {
         rules: [
-            {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            },
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 use: [
